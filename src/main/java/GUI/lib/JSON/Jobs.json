@@ -1,0 +1,144 @@
+[
+  {
+    "Name": "Computer Programmer",
+    "Details": {
+      "Salary": "150000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Java, C#, C, JQuery",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills"
+      },
+      "Promotion Potential": "1"
+    }
+  },
+  {
+    "Name": "Computer Analyst",
+    "Details": {
+      "Salary": "250000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Roslyn, Python, SQL",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail"
+      },
+      "Promotion Potential": "0"
+    }
+  },
+  {
+    "Name": "I.T. Systems Admin",
+    "Details": {
+      "Salary": "50000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Roslyn, Python, SQL",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail"
+      },
+      "Promotion Potential": "0"
+    }
+  },
+  {
+    "Name": "Division CEO - Worldwide Consumer",
+    "Details": {
+      "Salary": "1000000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Leadership, Delegation, Consumer Expirience Expertise",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Able to give long presentations"
+      },
+      "Promotion Potential": "N/A"
+    }
+  },
+  {
+    "Name": "Division CTO - Worldwide Consumer",
+    "Details": {
+      "Salary": "500000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Leadership, Delegation, Consumer Expirience Expertise",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Able to give long presentations"
+      },
+      "Promotion Potential": "1"
+    }
+  },
+  {
+    "Name": "Division CMO - Worldwide Consumer",
+    "Details": {
+      "Salary": "500000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Leadership, Delegation, Consumer Expirience Expertise",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Able to give long presentations"
+      },
+      "Promotion Potential": "2"
+    }
+  },
+  {
+    "Name": "Division CLegalO - Worldwide Consumer",
+    "Details": {
+      "Salary": "500000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Leadership, Delegation, Consumer Expirience Expertise",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Able to give long presentations"
+      },
+      "Promotion Potential": "1"
+    }
+  },
+  {
+    "Name": "Division EVP - Worldwide Consumer",
+    "Details": {
+      "Salary": "400000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Leadership, Delegation, Consumer Expirience Expertise",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Able to give long presentations"
+      },
+      "Promotion Potential": "2"
+    }
+  },
+  {
+    "Name": "Division EVP - Worldwide Technology",
+    "Details": {
+      "Salary": "410000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Leadership, Delegation, Consumer Expirience Expertise Relating to Technology",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Technical Oriented"
+      },
+      "Promotion Potential": "2"
+    }
+  },
+  {
+    "Name": "Senior Solution Architect",
+    "Details": {
+      "Salary": "12000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant",
+        "Languages": "Leadership and Keen Eye for Efficiency",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Very Technical Oriented"
+      },
+      "Promotion Potential": "00"
+    }
+  },
+  { 
+  "Name": "Senior Marketing Manager",
+    "Details": {
+      "Salary": "12000",
+      "Responsiblilites": {
+
+        "Tenure": "Client Dependant but can be terminated due to poor sales",
+        "Languages": "Leadership and Keen Eye for Efficiency and Human Interaction",
+        "Soft Skills": "Exellent Written and Verbal Communication Skills, Attention to Detail, Very Technical Oriented"
+      },
+      "Promotion Potential": "04"
+    }}
+]
