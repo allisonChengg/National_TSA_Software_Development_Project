@@ -63,7 +63,7 @@ public class FindResources_Panel extends JPanel implements ActionListener, Focus
 			"Public Services",
 			"Banks",
 			"Food Bank",
-			"Trift Stores",
+			"Thrift Stores",
 			"Career Events"
 	};
 
