@@ -6,12 +6,16 @@ import AOITServer.Observers.UsernameSubject;
 import AOITServer.Singletons.DatabaseSingleton;
 import AOITServer.Tables.AOITUsersTable;
 import io.javalin.http.Handler;
-
-import javax.mail.Address;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * InformationController is responsible for setting and getting client information.
+ *
+ * <p>InformationController allows for client to set and get password,phone number,email,birthday and name </p>
+ * @see UsernameObserver,UsernameObserver
+ */
 public class InformationController implements UsernameObserver {
    private UsernameSubject usernameSubject;
 
@@ -29,7 +33,12 @@ public class InformationController implements UsernameObserver {
     private PreparedStatement nameSet;
 
 
-
+    /**
+     *
+     * @param connectionIndex index of already initialized connection.
+     * @param ds DatabaseSingleton used to create preparedStatement using connection at connection index.
+     * @param subject {@link UsernameSubject} used to get current clients username.
+     */
     public InformationController(int connectionIndex, DatabaseSingleton ds,UsernameSubject subject){
         usernameSubject = subject;
 
@@ -93,6 +102,10 @@ public class InformationController implements UsernameObserver {
 
     }
 
+    /**
+     * getName member gets clients name from table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getName(){
         return ctx ->{
             try {
@@ -114,6 +127,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * getPassword member gets clients password from table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getPassword(){
         return ctx ->{
             try {
@@ -138,6 +155,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * getEmail member gets clients email from table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getEmail(){
         return ctx ->{
             try {
@@ -159,6 +180,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * getAddress member gets clients address from table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getAddress(){
         return ctx ->{
             try {
@@ -180,6 +205,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * getPhone member gets clients phone number from table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getPhone(){
         return ctx ->{
             try {
@@ -201,6 +230,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * getBirthday member gets clients birthday from table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getBirthday(){
         return ctx ->{
             try {
@@ -222,6 +255,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * setName method used for setting name for client into table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler setName(){
         return ctx ->{
             String name = ctx.queryParam("Name");
@@ -245,6 +282,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * setPassword method used for setting password for client into table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler setPassword(){
         return ctx ->{
             String password = ctx.queryParam("Password");
@@ -268,6 +309,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * setBirthday method used for setting birthday for client into table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler setBirthday(){
         return ctx ->{
             String birthday = ctx.queryParam("Birth");
@@ -291,6 +336,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * setEmail method used for setting email for client into table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler setEmail(){
         return ctx ->{
             String email = ctx.queryParam("Email");
@@ -314,6 +363,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * setAddress method used for setting address for client into table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler setAddress(){
         return ctx ->{
             String address = ctx.queryParam("Address");
@@ -337,6 +390,10 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     * setPhoneNumber method used for setting phone number for client into table.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler setPhoneNumber(){
         return ctx ->{
             String phoneNumber = ctx.queryParam("Phone");
@@ -360,6 +417,11 @@ public class InformationController implements UsernameObserver {
         };
     }
 
+    /**
+     *
+     * @param a {@link UsernameSubject} that username will be gotten from using {@link UsernameSubject#getUsername()}
+     * @return Username of client.
+     */
     public String updateUsername(UsernameSubject a) {
        return a.getUsername();
     }

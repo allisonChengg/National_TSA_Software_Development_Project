@@ -1,6 +1,9 @@
 package AOITServer.Tables;
 
-//Names of columns in AOITUsersTable found in AOITDatabase
+/**
+ * AOITUsersTable class contains column names found in AOITUsers table.
+ * <p>Table used for storing User Information</p>
+ */
 public class AOITUsersTable {
     public static final String TABLENAME = "AOITUsers";
     public static final String USERNAME= "Username";

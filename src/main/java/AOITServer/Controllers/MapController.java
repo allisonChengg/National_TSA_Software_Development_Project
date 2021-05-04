@@ -11,14 +11,29 @@ import io.javalin.http.Handler;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+
+/**
+ * MapController class is used to talk to google maps api and return nearby infrastructure near clients.
+ */
 public class MapController {
     private String token;
     private HttpRequestClient reqClient;
+
+    /**
+     *
+     * @param mapToken google maps api token
+     * @param rc {@link HttpRequestClient} used to send https requests to google maps api
+     */
     public MapController(String mapToken, HttpRequestClient rc){
         token = mapToken;
         reqClient= rc;
     }
 
+    /**
+     * sendGeoLocRequest converts address to geological coordinates the client is currently at.
+     * @param addr Clients current address.
+     * @return Geolocation coordinates for were the client is located.
+     */
     private String[] sendGeoLocRequest(String addr){
         String url = String.format("https://maps.googleapis.com/maps/api/geocode/json?address=%s&key=%s",
                 URLEncoder.encode(addr, StandardCharsets.UTF_8),token);
@@ -35,6 +50,13 @@ public class MapController {
 
     }
 
+    /**
+     * @param latitude Latitude coordinate for current client location
+     * @param longitude Longitude coordinate for current client location
+     * @param radius Radius around clients location to search for nearby places.
+     * @param keyword Location to be searched for by the keyword
+     * @return Returns json of nearby locations found by keyword
+     */
     private String sendNearbySearchRequest(String latitude,String longitude,String radius,String keyword){
         String format = String.format("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%s,%s&radius=%s&keyword=%s&key=%s"
                 ,latitude,longitude,radius,keyword,token);
@@ -42,6 +64,11 @@ public class MapController {
         return reqClient.request(format);
     }
 
+    /**
+     *  getBanks method sends JSON with nearby locations of banks to the client
+     *
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getBanks(){
         return ctx ->{
             String address = ctx.queryParam("Address");
@@ -63,6 +90,10 @@ public class MapController {
 
     }
 
+    /**
+     * getShelter method sends JSON with nearby locations of shelters to the client
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getShelter(){
         return ctx ->{
             String address = ctx.queryParam("Address");
@@ -80,6 +111,10 @@ public class MapController {
         };
     }
 
+    /**
+     * getFoodBanks method sends JSON with nearby locations of Food Banks to the client
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getFoodBanks(){
         return ctx ->{
             String address = ctx.queryParam("Address");
@@ -97,6 +132,10 @@ public class MapController {
         };
     }
 
+    /**
+     * getThriftStores method sends JSON with nearby locations of Thrift Stores to the client
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getThriftStores(){
         return ctx ->{
             String address = ctx.queryParam("Address");
@@ -114,6 +153,10 @@ public class MapController {
         };
     }
 
+    /**
+     * getPublicServices method sends JSON with nearby locations of Water store,company and electric company.
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler getPublicServices(){
         return ctx ->{
             String address = ctx.queryParam("Address");
@@ -141,8 +184,6 @@ public class MapController {
                 System.out.println(jsonArray.toString());
 
                 ctx.result(jsonArray.toString());
-
-
 
             }
         };

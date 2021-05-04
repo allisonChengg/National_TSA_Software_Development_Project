@@ -14,6 +14,11 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Random;
 
+/**
+ * PasswordController is responsible for resetting password.
+ *
+ * <p>PasswordController sends password reset emails with a pin and is responsible for resetting password </p>
+ */
 public class PasswordController {
     private PreparedStatement psGetEmail;
     private PreparedStatement psSetEmailKey;
@@ -21,6 +26,10 @@ public class PasswordController {
     private PreparedStatement psDeleteKeyInformation;
     private PreparedStatement psUpdateUserPassword;
 
+    /**
+     * @param connectionIndex index of already initialized connection
+     * @param ds DatabaseSingleton used to create preparedStatement using connection at connection index
+     */
     public PasswordController(int connectionIndex,DatabaseSingleton ds){
         String sql1 = String.format("SELECT %s FROM %s WHERE %s = ?",
                 AOITUsersTable.EMAIL,AOITUsersTable.TABLENAME,AOITUsersTable.USERNAME);
@@ -50,6 +59,7 @@ public class PasswordController {
         psUpdateUserPassword = ds.getPreparedStatement(index5);
 
     }
+    
     public Handler sendValidationKey(EmailClient ce){
         return ctx -> {
             String username = ctx.queryParam("Username");

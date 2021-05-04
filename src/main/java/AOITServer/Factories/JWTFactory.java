@@ -1,5 +1,13 @@
 package AOITServer.Factories;
-//JWTFactory interface is used to create JWT tokens with arg parameters
+
+/**
+ * Implementing JWTFactory allows for subclasses to specify how to create JWT token.
+ */
 public interface JWTFactory {
+    /**
+     *
+     * @param args Claims to be put into JWT token.
+     * @return Returns JWT token.
+     */
     String createToken(String... args);
 }

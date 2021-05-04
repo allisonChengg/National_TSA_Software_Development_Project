@@ -1,6 +1,9 @@
 package AOITServer.Tables;
 
-//Column names for AOITEmailKeys table in AOITDatabase
+/**
+ * AOITEmailKeyTable class contains column names found in AOITEmailKeys table.
+ * <p>Table used for storing information related to a reset password verification email</p>
+ */
 
 public class AOITEmailKeyTable {
     public static final String TABLENAME = "AOITEmailKeys";

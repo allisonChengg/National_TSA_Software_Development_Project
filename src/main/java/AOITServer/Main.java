@@ -7,34 +7,33 @@ import AOITServer.Factories.JWTConcreteFactory;
 import AOITServer.Observers.AccessManagerJWT;
 import AOITServer.Observers.ServerLogging;
 import AOITServer.Singletons.DatabaseSingleton;
-import GUI.Login_Screen;
 import io.javalin.Javalin;
 import javalinjwt.JavalinJWT;
-import GUI.*;
-import java.util.Map;
 
-import com.formdev.flatlaf.FlatLightLaf;
+import java.util.Map;
 
 import static io.javalin.core.security.SecurityUtil.roles;
 
-
+/**
+ * Main class contains main method which starts the program.
+ */
 public class Main {
 	
     public static void main(String[] args){
-
 
         String databaseUsername = "woottontsa@wootton-tsa-mysql-server";
         //please no hack
         String databasePassword = "Woot@2020";
         String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-        String databaseURL = "jdbc:mysql://wootton-tsa-mysql-server.mysql.database.azure.com:3306/AOITDatabase?serverTimezone=UTC&autoReconnect=true";
+        String databaseURL = "jdbc:mysql://wootton-tsa-mysql-server.mysql.database.azure.com:3306/AOITDatabase?serverTimezone=UTC";
         String email = "dev.woottontsa.org@gmail.com";
         String emailPassword = "dev.woottontsa.org@Wootton2020";
         String googleMapsApiKey = "AIzaSyB0kTB0O417Co-wx3mm5lLIU3AdVuCICtc.";
 
         DatabaseSingleton ds = DatabaseSingleton.getInstance(jdbcDriver,databaseURL);
-        ds.createConnection(databaseUsername,databasePassword);
 
+        System.out.println(ds.createConnection(databaseUsername,databasePassword));
+        System.out.println("Test1");
         Javalin server = Javalin.create();
 
         Runtime.getRuntime().addShutdownHook(new Thread(()->{
@@ -42,6 +41,8 @@ public class Main {
             server.stop();
 
         }));
+
+
 
         JWTConcreteFactory jwtFactory = new JWTConcreteFactory("AAABBBCCC");
         server.before(JavalinJWT.createHeaderDecodeHandler(jwtFactory.getProvider()));
@@ -95,7 +96,6 @@ public class Main {
         int port = 8001;
         server.start(port);
         
-        FlatLightLaf.install();
-        Login_Screen.Intialize("lib/logins.txt");
+
     }
 }
