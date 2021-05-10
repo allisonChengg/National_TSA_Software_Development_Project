@@ -2,6 +2,7 @@ package AOITServer.Factories;
 
 /**
  * Implementing JWTFactory allows for subclasses to specify how to create JWT token.
+ * @deprecated
  */
 public interface JWTFactory {
     /**

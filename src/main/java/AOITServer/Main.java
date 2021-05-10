@@ -4,6 +4,8 @@ import AOITServer.Adapters.ConcreteEmailClient;
 import AOITServer.Adapters.ConcreteHttpRequestClient;
 import AOITServer.Controllers.*;
 import AOITServer.Factories.JWTConcreteFactory;
+import AOITServer.Factories.JWTReflexiveFactory;
+import AOITServer.Factories.JWTToken;
 import AOITServer.Observers.AccessManagerJWT;
 import AOITServer.Observers.ServerLogging;
 import AOITServer.Singletons.DatabaseSingleton;
@@ -44,7 +46,7 @@ public class Main {
 
 
 
-        JWTConcreteFactory jwtFactory = new JWTConcreteFactory("AAABBBCCC");
+        JWTReflexiveFactory<JWTToken> jwtFactory = new JWTReflexiveFactory<>("AAABBBCCC");
         server.before(JavalinJWT.createHeaderDecodeHandler(jwtFactory.getProvider()));
 
         AccessManagerJWT accessManager =new AccessManagerJWT("Username", "Role",

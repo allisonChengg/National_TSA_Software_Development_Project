@@ -12,6 +12,8 @@ import javalinjwt.JWTProvider;
  *
  * <p>JWTConcreteFactory is part of a factory pattern, and also decouples
  * a JWT library for server implementation</p>
+ *
+ * @deprecated
  */
 public class JWTConcreteFactory implements JWTFactory{
     /**
