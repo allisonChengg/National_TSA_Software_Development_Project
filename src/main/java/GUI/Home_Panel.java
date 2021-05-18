@@ -117,7 +117,6 @@ public class Home_Panel extends JPanel{
 
 		public void paint(Graphics g) {
 
-			System.out.println(secondHalf.getWidth() + " " + secondHalf.getHeight());
 			g.drawImage(image, 0, 0, secondHalf.getWidth(), secondHalf.getHeight(), this);
 		}
 	}
