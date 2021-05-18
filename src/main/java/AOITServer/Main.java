@@ -10,7 +10,6 @@ import AOITServer.Singletons.DatabaseSingleton;
 import GUI.Login_Screen;
 import io.javalin.Javalin;
 import javalinjwt.JavalinJWT;
-import GUI.*;
 import java.util.Map;
 
 import com.formdev.flatlaf.FlatLightLaf;
