@@ -30,6 +30,7 @@ public class Client_GUI extends JFrame implements ActionListener /*used to handl
 
 	private Home_Panel homePanel = new Home_Panel();
 	private FindResources_Panel findResourcesPanel = new FindResources_Panel();
+	private Maps mapsPanel = new Maps();
 	private JPanel takeoutALoanPanel = new TakeOutALoan_Panel();
 	private JPanel settingsPanel;
 
@@ -60,8 +61,10 @@ public class Client_GUI extends JFrame implements ActionListener /*used to handl
 		JTabbedPane navBar = new JTabbedPane();
 		navBar.addTab("Home", null, homePanel, "Home Tab");
 		navBar.addTab("Find Resources", null, findResourcesPanel, "Find Resources Tab");
+		navBar.addTab("Google Maps", null, mapsPanel, "Google Maps Tab");
 		navBar.addTab("Take Out A Loan", null, takeoutALoanPanel, "Take Out A Loan");
 		navBar.addTab("Settings", null, settingsPanel, "Settings");
+		
 
 		add(navBar);
 

@@ -831,7 +831,7 @@ public class FindResources_Panel extends JPanel implements ActionListener, Focus
 			nTA.setEditable(false);
 			add(nTA);
 
-			JTextArea sTA = new JTextArea("Salary: " + salary + "");
+			JTextArea sTA = new JTextArea("Salary: $" + salary + "");
 			sTA.setEditable(false);
 			sTA.setLineWrap(true);
 			add(sTA);

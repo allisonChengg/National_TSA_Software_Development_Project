@@ -110,7 +110,14 @@ public class Home_Panel extends JPanel{
 
 			image = Toolkit.getDefaultToolkit().getImage(getClass().getResource(fileName));
 		}
-
+		
+		/**
+		 * <h1>Rescales Image to the user specified height and width</h1>
+		 * @author Archie Garg
+		 * @param height
+		 * @param width
+		 * @return void
+		 */
 		public void rescale(int height, int width) {
 			image = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 		}
