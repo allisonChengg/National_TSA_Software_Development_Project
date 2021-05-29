@@ -6,15 +6,24 @@ import AOITServer.JsonClasses.JWTJson;
 import AOITServer.Singletons.DatabaseSingleton;
 import AOITServer.Tables.AOITUsersTable;
 import io.javalin.http.Handler;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
+/**
+ *UserController class is responsible for creating,logging in and validating JWT token.
+ */
 public class UserController {
+
     private PreparedStatement psCreateUser;
     private PreparedStatement psLogin;
+
+    /**
+     *
+     * @param connectionIndex index of already initialized connection
+     * @param ds DatabaseSingleton used to create preparedStatement using connection at connection index
+     */
     public UserController(int connectionIndex,DatabaseSingleton ds){
         String sql1 = String.format("INSERT INTO %s (%s,%s,%s) VALUES (?,?,?)",
                 AOITUsersTable.TABLENAME, AOITUsersTable.USERNAME, AOITUsersTable.PASSWORD
@@ -30,6 +39,11 @@ public class UserController {
         psLogin = ds.getPreparedStatement(index2);
 
     }
+
+    /**
+     * createUser method creates user and adds user to table
+     * @return Returns Handler needed for initializing accessible url.
+     */
     public Handler createUser(){
         return ctx ->{
             String username = ctx.queryParam("Username");
@@ -57,6 +71,11 @@ public class UserController {
         };
     }
 
+    /**
+     * loginUser method used to login user and sends back JWT token
+     * @param jwtFactory {@link JWTFactory} used for creating JWT tokens
+     * @return  Returns Handler needed for initializing accessible url.
+     */
     public Handler loginUser(JWTFactory jwtFactory){
         return ctx ->{
 
@@ -94,6 +113,10 @@ public class UserController {
         };
     }
 
+    /**
+     * Used to validate token and sends back a json success message.
+     * @return  Returns Handler needed for initializing accessible url.
+     */
     public Handler validateToken(){
         return ctx ->{
           ctx.json(new MessageJson(true,""));

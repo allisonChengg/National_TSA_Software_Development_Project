@@ -7,11 +7,20 @@ import com.auth0.jwt.algorithms.Algorithm;
 import javalinjwt.JWTGenerator;
 import javalinjwt.JWTProvider;
 
-/*
-    JWTConcreteFactory creates a jwt token that contains a users role and username
+/**
+ * JWTConcreteFactory creates JWT tokens with a username and role claims.
+ *
+ * <p>JWTConcreteFactory is part of a factory pattern, and also decouples
+ * a JWT library for server implementation</p>
+ *
+ * @deprecated
  */
 public class JWTConcreteFactory implements JWTFactory{
+    /**
+     * User class is used to store claims the JWT toke will have.
+     */
     private class User{
+
         public User(String username,String role){
             this.username = username;
             this.role = role;
@@ -25,7 +34,12 @@ public class JWTConcreteFactory implements JWTFactory{
     private JWTVerifier verf;
     private JWTProvider prov;
 
-    //creates a token with the username and the users role
+    /**
+     * createToken method takes in 2 parameters, username and role, and generates JWT token with those claims.
+     *
+     * @param args First arg should be the username and second arg should be the role
+     * @return If more then two args function returns empty string, else returns token.
+     */
     public String createToken(String... args) {
         if(args.length < 2){
             return "";
@@ -33,6 +47,10 @@ public class JWTConcreteFactory implements JWTFactory{
         return prov.generateToken(new User(args[0],args[1]));
     }
 
+    /**
+     *
+     * @param secret Secret is the private key used for the hashing algorithm
+     */
     public JWTConcreteFactory(String secret){
 
 
@@ -51,10 +69,16 @@ public class JWTConcreteFactory implements JWTFactory{
 
     }
 
+    /**
+     * @return Returns JWTGenerator(library specific WARNING!) used to generate the claims
+     */
     public JWTGenerator getGenerator(){
         return gen;
     }
 
+    /**
+     * @return Returns JWTProvider(library specific WARNING!) used to create token
+     */
     public JWTProvider getProvider(){
         return prov;
     }
