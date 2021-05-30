@@ -79,6 +79,5 @@ public class Client_GUI extends JFrame implements ActionListener /*used to handl
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
 	}
 }

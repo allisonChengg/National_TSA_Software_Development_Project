@@ -187,7 +187,7 @@ public class User {
 
 		HttpRequest req = null;
 		try {
-			req = HttpRequest.newBuilder(new URI("http://localhost:8001/setPassword?Password="+password)).POST(BodyPublishers.ofString("")).setHeader("Authorization", "Bearer " + getToken()).build();
+			req = HttpRequest.newBuilder(new URI("http://localhost:8001/setPassword?Password="+URLEncoder.encode(password))).POST(BodyPublishers.ofString("")).setHeader("Authorization", "Bearer " + getToken()).build();
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
