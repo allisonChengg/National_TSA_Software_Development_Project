@@ -1,10 +1,13 @@
 package AOITServer.Observers;
 
+import AOITServer.Main;
 import AOITServer.Singletons.DatabaseSingleton;
 import AOITServer.Tables.AOITLogs;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 /**
  * ServerLogging is used to log clients actions connecting to the server.
@@ -16,6 +19,8 @@ import java.sql.SQLException;
  */
 public class ServerLogging implements LoggingObserver {
     private PreparedStatement ps;
+    
+    private static Logger logger = LoggerFactory.getLogger(ServerLogging.class);
 
     /**
      *
@@ -35,9 +40,10 @@ public class ServerLogging implements LoggingObserver {
      */
     @Override
     public void setLog(String log){
+    	logger.info(log);
         try {
             ps.setString(1, log);
-
+            
             ps.execute();
         }catch(SQLException s){
             System.out.println("Logging failed: " + s);
