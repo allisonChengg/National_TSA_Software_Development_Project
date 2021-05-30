@@ -126,7 +126,17 @@ public class Login_Screen extends JFrame implements ActionListener, KeyListener 
 		signupButton.addActionListener(this);
 		signupButton.setBorder(border);
 		add(signupButton);
-
+		
+		JButton reset=new JButton();
+		reset.setText("Reset Password");
+		reset.setBounds(new Rectangle(150,350,200,50));
+		reset.setBackground(Color.BLACK);
+		reset.setForeground(Color.blue);
+		reset.setContentAreaFilled(false);
+		reset.addActionListener(this);
+		reset.setBorder(border);
+		add(reset);
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
