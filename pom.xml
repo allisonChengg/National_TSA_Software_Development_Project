@@ -91,6 +91,10 @@
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
+		<repository>
+			<id>com.teamdev</id>
+			<url>https://europe-maven.pkg.dev/jxbrowser/releases</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -112,6 +116,18 @@
 			<version>1.5</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-cross-platform</artifactId>
+			<version>7.15</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.teamdev.jxbrowser</groupId>
+			<artifactId>jxbrowser-swing</artifactId>
+			<version>7.15</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
