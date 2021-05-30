@@ -21,7 +21,6 @@ public class Main {
 	
     public static void main(String[] args){
 
-
         String databaseUsername = "woottontsa@wootton-tsa-mysql-server";
         //please no hack
         String databasePassword = "Woot@2020";
@@ -92,7 +91,9 @@ public class Main {
         accessManager.addLoggingObserver(serverLog);
 
         int port = 8001;
+        serverLog.setLog("Starting the server on port: " + port);
         server.start(port);
+        
         
         FlatLightLaf.install();
         Login_Screen.Intialize("lib/logins.txt");
